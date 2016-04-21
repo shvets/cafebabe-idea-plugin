@@ -2,8 +2,8 @@
   <profile>
     <id>dev</id>
     <properties>
-      <idea.version>7584</idea.version>
-      <idea.home>C:/Editors/IntelliJ IDEA 7584</idea.home>
+      <idea.version>2016.1.1</idea.version>
+      <idea.home>/Applications/IntelliJ\ IDEA\ CE.app/Contents</idea.home>
      </properties>
     <activation>
       <activeByDefault>true</activeByDefault>

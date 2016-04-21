@@ -30,7 +30,7 @@ public final class FileUtil {
    * @return the temporary file
    * @throws IOException I/O Exception
    */
-  public static File copyToFile(final InputStream is, final File file)
+  private static File copyToFile(final InputStream is, final File file)
           throws IOException {
     FileOutputStream fos = null;
     ReadableByteChannel source = null;
@@ -82,7 +82,7 @@ public final class FileUtil {
    * @return the temporary file
    * @throws java.io.IOException I/O Exception
    */
-  public static File copyToTempFile(final InputStream is, final String prefix, final String suffix)
+  private static File copyToTempFile(final InputStream is, final String prefix, final String suffix)
           throws IOException {
     return copyToFile(is, File.createTempFile(prefix, suffix));
   }
@@ -111,7 +111,7 @@ public final class FileUtil {
    * @return the manifest object
    * @throws IOException I/O Exception
    */
-  public static Manifest getManifest(final JarFile jarFile) throws IOException {
+  private static Manifest getManifest(final JarFile jarFile) throws IOException {
     Manifest manifest = null;
 
     ZipEntry zipEntry = jarFile.getEntry("META-INF/MANIFEST.MF");
@@ -218,7 +218,7 @@ public final class FileUtil {
    * @param fileName the file name
    * @return the extension
    */
-  public static String getExtension(String fileName) {
+  private static String getExtension(String fileName) {
     String extension = null;
 
     int pos = fileName.lastIndexOf('.');
