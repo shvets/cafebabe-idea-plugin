@@ -4,6 +4,7 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.wm.ToolWindow;
 import com.intellij.openapi.wm.ToolWindowAnchor;
 import com.intellij.openapi.wm.ToolWindowManager;
+import com.intellij.ui.components.JBScrollPane;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -16,16 +17,16 @@ import java.awt.*;
  * @version 1.0 11/24/2007
  */
 public abstract class ToolWindowComponent {
-  public static final Runnable EMPTY_RUNNABLE = new Runnable() {
+  private static final Runnable EMPTY_RUNNABLE = new Runnable() {
     public void run() {
     }
   };
 
-  protected IdeaHelper ideaHelper = new IdeaHelper();
+  private IdeaHelper ideaHelper = new IdeaHelper();
 
   private boolean isRegistered = false;
 
-  protected JPanel mainPanel;
+  private JPanel mainPanel;
   protected JPanel contentPanel;
 
   private Project project;
@@ -46,7 +47,7 @@ public abstract class ToolWindowComponent {
     ToolTipManager.sharedInstance().registerComponent(mainPanel);
   }
 
-  protected void createMainPanel() {
+  private void createMainPanel() {
     mainPanel = new JPanel(new BorderLayout());
   }
 
@@ -64,21 +65,21 @@ public abstract class ToolWindowComponent {
     mainPanel = null;
   }
 
-  protected void initMainPanel() {
+  private void initMainPanel() {
     mainPanel.add(createToolbar(), BorderLayout.NORTH);
   }
 
   protected void initContentPanel() {
     contentPanel.removeAll();
 
-    JScrollPane scrollPane = new JScrollPane();
+    JScrollPane scrollPane = new JBScrollPane();
 
     contentPanel.add(scrollPane, BorderLayout.CENTER);
 
     contentPanel.repaint();
   }
 
-  public void createConsole() {
+  protected void createConsole() {
     createToolWindow();
 
     initMainPanel();
@@ -119,7 +120,7 @@ public abstract class ToolWindowComponent {
     }
   }
 
-  protected ToolWindow createToolWindow() {
+  private ToolWindow createToolWindow() {
     ToolWindowManager toolWindowManager = ToolWindowManager.getInstance(project);
 
     ToolWindow toolWindow = toolWindowManager.getToolWindow(toolWindowId);
@@ -138,17 +139,17 @@ public abstract class ToolWindowComponent {
 
   protected abstract JComponent createToolbar();
 
-  public ToolWindow getToolWindow() {
+  protected ToolWindow getToolWindow() {
     ToolWindowManager toolWindowManager = ToolWindowManager.getInstance(project);
 
     return toolWindowManager.getToolWindow(toolWindowId);
   }
 
-  public boolean isRegistered() {
+  protected boolean isRegistered() {
     return isRegistered;
   }
 
-  public void setRegistered(boolean registered) {
+  private void setRegistered(boolean registered) {
     isRegistered = registered;
   }
 
@@ -156,11 +157,11 @@ public abstract class ToolWindowComponent {
     return project;
   }
 
-  public JPanel getMainPanel() {
+  protected JPanel getMainPanel() {
     return mainPanel;
   }
 
-  public JPanel getContentPanel() {
+  protected JPanel getContentPanel() {
     return contentPanel;
   }
 

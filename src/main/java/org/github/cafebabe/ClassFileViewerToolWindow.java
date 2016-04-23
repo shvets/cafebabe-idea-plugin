@@ -31,13 +31,12 @@ import java.io.InputStream;
  * @author Alexander Shvets
  * @version 1.0 11/24/2007
  */
-public class ClassFileViewerToolWindow extends ToolWindowComponent
-    implements ProjectComponent {
-  public static final String COMPONENT_NAME = "cafebabe.ClassFileViewerToolWindow.Component";
+public class ClassFileViewerToolWindow extends ToolWindowComponent implements ProjectComponent {
+  private static final String COMPONENT_NAME = "cafebabe.ClassFileViewerToolWindow.Component";
   public static final String TOOL_WINDOW_ID = "CafeBabe";
-  public static final String ACTION_GROUP_ID = "cafebabe.ClassFileViewerToolWindow";
+  private static final String ACTION_GROUP_ID = "cafebabe.ClassFileViewerToolWindow";
   public static final String CAFEBABE_VERTICAL_ICON = "/Icons/cafebabe-16-vert.png";
-  public static final String CAFEBABE_HORIZONTAL_ICON = "/Icons/cafebabe-16.png";
+  static final String CAFEBABE_HORIZONTAL_ICON = "/Icons/cafebabe-16.png";
 
   private MainChooser fileChooser = new MainChooser();
 
@@ -144,7 +143,7 @@ public class ClassFileViewerToolWindow extends ToolWindowComponent
     return classTree != null;
   }
 
-  public PlainClassTree getClassTree() {
+  PlainClassTree getClassTree() {
     return classTree;
   }
 
@@ -192,7 +191,7 @@ public class ClassFileViewerToolWindow extends ToolWindowComponent
             saveFile();
             closeBodyEditor();
           }
-          catch (Exception e) {
+          catch (Exception ignored) {
             ;
           }
         }
@@ -231,7 +230,7 @@ public class ClassFileViewerToolWindow extends ToolWindowComponent
         try {
           classTree.saveAsClassFile(file);
         }
-        catch(Exception e) {
+        catch(Exception ignored) {
           ;
         }
       }

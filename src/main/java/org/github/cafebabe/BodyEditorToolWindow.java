@@ -33,7 +33,7 @@ public class BodyEditorToolWindow extends ToolWindowComponent implements BodyEdi
 
   private JPanel parent;
 
-  public BodyEditorToolWindow(Project project, JPanel parent) {
+  BodyEditorToolWindow(Project project, JPanel parent) {
     super(project, TOOL_WINDOW_ID);
 
     this.parent = parent;
@@ -62,7 +62,7 @@ public class BodyEditorToolWindow extends ToolWindowComponent implements BodyEdi
     };
   }
 
-  public void open(JPanel parent, final ClassFile classFile, final MethodEntry methodEntry, int position) {
+  void open(JPanel parent, final ClassFile classFile, final MethodEntry methodEntry, int position) {
     bodyTable = new BodyTable(parent, methodEntry, classFile) {
       public void showTopic() {
         help();

@@ -31,8 +31,7 @@ public class IdeaHelper {
     return ourInstance;
   }
 
-  public IdeaHelper() {
-  }
+  IdeaHelper() {}
 
   /**
    * Gets the project.
@@ -53,7 +52,7 @@ public class IdeaHelper {
    * @param toolWindowId ID for tool window
    * @return the tool window
    */
-  public ToolWindow getToolWindow(Project project, String toolWindowId) {
+  ToolWindow getToolWindow(Project project, String toolWindowId) {
     ToolWindowManager toolWindowManager =
         ToolWindowManager.getInstance(project);
 
@@ -84,7 +83,7 @@ public class IdeaHelper {
    * @param icon the icon
    * @return the tool window
    */
-  public ToolWindow createToolWindow(Project project, JPanel contentPanel, String toolWindowId,
+  ToolWindow createToolWindow(Project project, JPanel contentPanel, String toolWindowId,
                                       ToolWindowAnchor position, Icon icon) {
     ToolWindowManager toolWindowManager = ToolWindowManager.getInstance(project);
 

@@ -20,7 +20,7 @@ import org.jetbrains.annotations.NotNull;
 public final class CafeBabeConfiguration
     implements ProjectComponent, PersistentStateComponent<CafeBabeConfiguration> {
 
-  public final static String COMPONENT_NAME = "CafeBabe.Configuration";
+  final static String COMPONENT_NAME = "CafeBabe.Configuration";
 
   // properties to persist
 
@@ -66,11 +66,11 @@ public final class CafeBabeConfiguration
     this.lastSelectedFile = lastSelectedFile;
   }
 
-  public String getLastSelectedEntry() {
+  String getLastSelectedEntry() {
     return lastSelectedEntry;
   }
 
-  public void setLastSelectedEntry(String lastSelectedEntry) {
+  void setLastSelectedEntry(String lastSelectedEntry) {
     this.lastSelectedEntry = lastSelectedEntry;
   }
 

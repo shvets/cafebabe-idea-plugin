@@ -23,7 +23,7 @@ import java.io.InputStream;
  * @author Alexander Shvets
  * @version 1.0 11/24/2007
  */
-public class IdeaClassTree extends PlainClassTree {
+class IdeaClassTree extends PlainClassTree {
   private ClassTreeActions actions;
 
   private BodyEditorToolWindow bodyEditor;
@@ -31,7 +31,7 @@ public class IdeaClassTree extends PlainClassTree {
   private JPanel parent;
   private String name;
 
-  public IdeaClassTree(Project project, JPanel parent, String name) {
+  IdeaClassTree(Project project, JPanel parent, String name) {
     super();
 
     this.parent = parent;
@@ -87,7 +87,7 @@ public class IdeaClassTree extends PlainClassTree {
    * @param is input stream
    * @throws IOException I/O exception
    */
-  public void open(InputStream is) throws IOException {
+  void open(InputStream is) throws IOException {
     try {
       ClassFile classFile = new ClassFile();
       classFile.read(new DataInputStream(is));
@@ -143,7 +143,7 @@ public class IdeaClassTree extends PlainClassTree {
     //setTitle(dataSource.getName());
   }
 
-  public BodyEditorToolWindow getBodyEditor() {
+  BodyEditorToolWindow getBodyEditor() {
     return bodyEditor;
   }
 

@@ -51,6 +51,7 @@ public class OpenFileAction extends IdeaAction {
             }
           };
 
+          //noinspection DialogTitleCapitalization
           descriptor.setTitle("class file");
 
           CafeBabeConfiguration configuration = project.getComponent(CafeBabeConfiguration.class);
@@ -73,6 +74,7 @@ public class OpenFileAction extends IdeaAction {
               if ("class".equals(FileUtil.getExtension(virtualFile.getPresentableUrl()))) {
                 Window window = WindowManager.getInstance().suggestParentWindow(project);
 
+                assert window != null;
                 Cursor cursor = window.getCursor();
 
                 window.setCursor(new Cursor(Cursor.WAIT_CURSOR));

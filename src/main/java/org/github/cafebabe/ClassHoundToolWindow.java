@@ -36,9 +36,9 @@ import java.util.zip.ZipFile;
  * @version 1.0 11/24/2007
  */
 public class ClassHoundToolWindow extends ToolWindowComponent implements ProjectComponent, CafeBabeParent {
-  public static final String ACTION_GROUP_ID = "cafebabe.ClassHoundToolWindow";
+  private static final String ACTION_GROUP_ID = "cafebabe.ClassHoundToolWindow";
   public static final String TOOL_WINDOW_ID = "ClassHound";
-  public static final String COMPONENT_NAME = "cafebabe.ClassHoundToolWindow.Component";
+  private static final String COMPONENT_NAME = "cafebabe.ClassHoundToolWindow.Component";
 
   private MainChooser fileChooser;
 
@@ -138,29 +138,27 @@ public class ClassHoundToolWindow extends ToolWindowComponent implements Project
     if (file != null && !file.isDirectory()) {
       String extension = FileUtil.getExtension(file).toLowerCase();
 
-      if (extension != null) {
-        if (extension.equals("zip") || extension.equals("jar")) {
-          ClasspathArchiveEntry entry = new ClasspathArchiveEntry();
+      if (extension.equals("zip") || extension.equals("jar")) {
+        ClasspathArchiveEntry entry = new ClasspathArchiveEntry();
 
-          entry.setFileName(file.getPath());
+        entry.setFileName(file.getPath());
 
-          JFrame mainFrame = (JFrame) getMainPanel().getTopLevelAncestor();
+        JFrame mainFrame = (JFrame) getMainPanel().getTopLevelAncestor();
 
-          ClasspathBrowser jarBrowser =
-              new ClasspathBrowser(mainFrame, null, "Classes in selected JAR file:", false);
+        ClasspathBrowser jarBrowser =
+            new ClasspathBrowser(mainFrame, null, "Classes in selected JAR file:", false);
 
-          jarBrowser.clear();
-          jarBrowser.setClasspathComponent(entry);
-          jarBrowser.setVisible(true);
+        jarBrowser.clear();
+        jarBrowser.setClasspathComponent(entry);
+        jarBrowser.setVisible(true);
 
-          String selectedClassName = jarBrowser.getSelectedClassName();
+        String selectedClassName = jarBrowser.getSelectedClassName();
 
-          if (selectedClassName != null) {
-            dataSource = new ArchivedDataSource(new ZipFile(file.getPath()), selectedClassName + ".class");
-          }
-        } else {
-          dataSource = new FileDataSource(file);
+        if (selectedClassName != null) {
+          dataSource = new ArchivedDataSource(new ZipFile(file.getPath()), selectedClassName + ".class");
         }
+      } else {
+        dataSource = new FileDataSource(file);
       }
     }
 

@@ -21,17 +21,12 @@ public class AboutAction extends IdeaAction {
   public void actionPerformed(AnActionEvent event) {
     Project project = helper.getProject(event);
 
-    StringBuffer message = new StringBuffer();
-
-    message.append(Constants.MAIN_FRAME_TITLE).append('\n');
-    message.append("Author: Alexander Shvets").append('\n');
-    message.append("e-mail: <alexander.shvets@gmail.com>").append('\n');
-
-    StringBuffer title = new StringBuffer();
-    title.append("About ").append("Cafe Babe").append(" plugin...");
+    String message = Constants.MAIN_FRAME_TITLE + '\n' +
+        "Author: Alexander Shvets" + '\n' +
+        "e-mail: <alexander.shvets@gmail.com>" + '\n';
 
     final ImageIcon icon = IconProducer.getImageIcon(Constants.ICON_FACE1);    
 
-    Messages.showMessageDialog(project, message.toString(), "About CafeBabe", icon);
+    Messages.showMessageDialog(project, message, "About CafeBabe", icon);
   }
 }
