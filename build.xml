@@ -35,4 +35,16 @@
     <move file="target/cafebabe-idea-plugin-src.zip" tofile="target/cafebabe-idea-plugin-src-1.0.0.zip"/>
   </target>
 
+  <target name="deploy">
+    <unzip src="cafebabe-idea-plugin.zip" dest="dest"/>
+
+    <mkdir dir="/Applications/IntelliJ IDEA CE.app/Contents/plugins/CafeBabe/lib"/>
+
+    <copy todir="/Applications/IntelliJ IDEA CE.app/Contents/plugins/CafeBabe/lib">
+      <fileset dir="dest/cafebabe-idea-plugin/lib">
+        <include name="**/*.jar"/>
+      </fileset>
+    </copy>
+  </target>
+
 </project>
