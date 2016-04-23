@@ -9,6 +9,7 @@ import com.intellij.openapi.util.IconLoader;
 import com.intellij.openapi.wm.ToolWindow;
 import com.intellij.openapi.wm.ToolWindowManager;
 import com.intellij.openapi.wm.ToolWindowType;
+import com.intellij.ui.AppUIUtil;
 import org.google.code.idea.common.ToolWindowComponent;
 import org.jetbrains.annotations.NotNull;
 import org.sf.cafebabe.Constants;
@@ -248,7 +249,15 @@ public class ClassFileViewerToolWindow extends ToolWindowComponent
       classHoundToolWindow = new ClassHoundToolWindow(getProject());
 
       classHoundToolWindow.createConsole();
+
       ((ClassHoundPanel) classHoundToolWindow.getContentPanel()).startThread();
+
+//      AppUIUtil.invokeOnEdt(new Runnable() {
+//        @Override
+//        public void run() {
+//          ((ClassHoundPanel) classHoundToolWindow.getContentPanel()).startThread();
+//        }
+//      });
     }
 
     classHoundToolWindow.setConsoleVisible(true);
