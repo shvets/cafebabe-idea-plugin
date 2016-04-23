@@ -17,7 +17,7 @@ import java.awt.*;
  * @version 1.0 11/24/2007
  */
 public abstract class ToolWindowComponent {
-  private static final Runnable EMPTY_RUNNABLE = new Runnable() {
+  protected static final Runnable EMPTY_RUNNABLE = new Runnable() {
     public void run() {
     }
   };
@@ -79,7 +79,8 @@ public abstract class ToolWindowComponent {
     contentPanel.repaint();
   }
 
-  protected void createConsole() {
+  @SuppressWarnings("WeakerAccess")
+  public void createConsole() {
     createToolWindow();
 
     initMainPanel();
@@ -161,7 +162,8 @@ public abstract class ToolWindowComponent {
     return mainPanel;
   }
 
-  protected JPanel getContentPanel() {
+  @SuppressWarnings("WeakerAccess")
+  public JPanel getContentPanel() {
     return contentPanel;
   }
 
