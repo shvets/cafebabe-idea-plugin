@@ -1,9 +1,9 @@
 <!DOCTYPE idea-plugin PUBLIC "Plugin/DTD" "http://plugins.intellij.net/plugin.dtd">
 
 <idea-plugin version="2" url="https://github.com/shvets/cafebabe-idea-plugin">
-  <id>com.github.shvets.plugin.cafebabe</id>
+  <id>CafeBabe</id>
   <name>CafeBabe</name>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
   <vendor url="http://shvets.github.com" email="alexander.shvets@gmail.com">Alexander Shvets</vendor>
 
   <description><![CDATA[
