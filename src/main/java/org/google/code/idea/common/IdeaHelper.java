@@ -5,25 +5,18 @@ package org.google.code.idea.common;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.DataContext;
 import com.intellij.openapi.actionSystem.DataKeys;
-import com.intellij.openapi.editor.Editor;
+import com.intellij.openapi.components.ServiceManager;
 import com.intellij.openapi.project.Project;
-import com.intellij.openapi.vfs.LocalFileSystem;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.openapi.wm.ToolWindow;
 import com.intellij.openapi.wm.ToolWindowAnchor;
 import com.intellij.openapi.wm.ToolWindowManager;
-import com.intellij.peer.PeerFactory;
-import com.intellij.psi.PsiDirectory;
-import com.intellij.psi.PsiManager;
-import com.intellij.psi.PsiPackage;
 import com.intellij.ui.content.Content;
+import com.intellij.ui.content.ContentFactory;
+import com.intellij.ui.content.ContentManager;
 
 import javax.swing.*;
 import java.io.File;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * This class contains useful routines for working with IDEA API.
@@ -76,10 +69,10 @@ public class IdeaHelper {
    * @param position the position
    * @return the tool window
    */
-  public ToolWindow createsToolWindow(Project project, JPanel contentPanel, String toolWindowId,
-                                      ToolWindowAnchor position) {
-    return createToolWindow( project, contentPanel, toolWindowId, position, null);
-  }
+//  public ToolWindow createsToolWindow(Project project, JPanel contentPanel, String toolWindowId,
+//                                      ToolWindowAnchor position) {
+//    return createToolWindow( project, contentPanel, toolWindowId, position, null);
+//  }
 
   /**
    * Creates the tool window.
@@ -98,11 +91,13 @@ public class IdeaHelper {
     ToolWindow toolWindow =
         toolWindowManager.registerToolWindow(toolWindowId, true, position);
 
-    PeerFactory peerFactory = PeerFactory.getInstance();
+    final ContentFactory contentFactory = ServiceManager.getService(ContentFactory.class);
 
-    Content content = peerFactory.getContentFactory().createContent(contentPanel, toolWindowId, false);
+    final Content content = contentFactory.createContent(contentPanel, toolWindowId, false);
 
-    toolWindow.getContentManager().addContent(content);
+    final ContentManager contentManager = toolWindow.getContentManager();
+
+    contentManager.addContent(content);
 
     if(icon != null) {
       toolWindow.setIcon(icon);
@@ -111,71 +106,71 @@ public class IdeaHelper {
     return toolWindow;
   }
 
-  /**
-   * Gets the icon.
-   *
-   * @param name  the resource name
-   * @param clazz the class name
-   * @return the icon
-   */
-  public ImageIcon getIcon(String name, Class clazz) {
-    URL url = clazz.getResource(name);
+//  /**
+//   * Gets the icon.
+//   *
+//   * @param name  the resource name
+//   * @param clazz the class name
+//   * @return the icon
+//   */
+//  public ImageIcon getIcon(String name, Class clazz) {
+//    URL url = clazz.getResource(name);
+//
+//    return new ImageIcon(url);
+//  }
 
-    return new ImageIcon(url);
-  }
+//  /**
+//   * Gets the class name inside the project.
+//   *
+//   * @param fileName the file name
+//   * @param project  the project
+//   * @return the class name
+//   */
+//  public String getClassName(String fileName, Project project) {
+//    PsiManager psiManager = PsiManager.getInstance(project);
+//    LocalFileSystem localFileSystem = LocalFileSystem.getInstance();
+//
+//    String vfsPathName = fileName.replace(File.separatorChar, '/');
+//
+//    VirtualFile virtualFile = localFileSystem.findFileByPath(vfsPathName);
+//
+//    if (virtualFile == null) {
+//      return fileName;
+//    }
+//
+//    PsiDirectory psiDir = psiManager.findDirectory(virtualFile);
+//
+//    if (psiDir == null) {
+//      return fileName;
+//    }
+//
+//    PsiPackage psiPackage = psiDir.getPackage();
+//
+//    if (psiPackage == null) {
+//      return fileName;
+//    }
+//
+//    return psiPackage.getQualifiedName() + "." +
+//        virtualFile.getNameWithoutExtension();
+//  }
 
-  /**
-   * Gets the class name inside the project.
-   *
-   * @param fileName the file name
-   * @param project  the project
-   * @return the class name
-   */
-  public String getClassName(String fileName, Project project) {
-    PsiManager psiManager = PsiManager.getInstance(project);
-    LocalFileSystem localFileSystem = LocalFileSystem.getInstance();
-
-    String vfsPathName = fileName.replace(File.separatorChar, '/');
-
-    VirtualFile virtualFile = localFileSystem.findFileByPath(vfsPathName);
-
-    if (virtualFile == null) {
-      return fileName;
-    }
-
-    PsiDirectory psiDir = psiManager.findDirectory(virtualFile);
-
-    if (psiDir == null) {
-      return fileName;
-    }
-
-    PsiPackage psiPackage = psiDir.getPackage();
-
-    if (psiPackage == null) {
-      return fileName;
-    }
-
-    return psiPackage.getQualifiedName() + "." +
-        virtualFile.getNameWithoutExtension();
-  }
-
-  public List<VirtualFile> getVirtualFiles(DataContext dataContext) {
-    return new ArrayList<VirtualFile>(Arrays.asList(DataKeys.VIRTUAL_FILE_ARRAY.getData(dataContext)));
-  }
+//  public List<VirtualFile> getVirtualFiles(DataContext dataContext) {
+//    return new ArrayList<VirtualFile>(Arrays.asList(DataKeys.VIRTUAL_FILE_ARRAY.getData(dataContext)));
+//  }
 
   public Project getProject(DataContext dataContext) {
     return DataKeys.PROJECT.getData(dataContext);
   }
 
-  public Editor getEditor(DataContext dataContext) {
-    return DataKeys.EDITOR.getData(dataContext);
-  }
-
-  public String getFileExtension(DataContext dataContext) {
-    VirtualFile file = DataKeys.VIRTUAL_FILE.getData(dataContext);
-
-    return file != null ? file.getExtension() : null;
-  }
+//  public Editor getEditor(DataContext dataContext) {
+//    return DataKeys.EDITOR.getData(dataContext);
+//  }
+//
+//  public String getFileExtension(DataContext dataContext) {
+//    VirtualFile file = DataKeys.VIRTUAL_FILE.getData(dataContext);
+//
+//    return file != null ? file.getExtension() : null;
+//  }
 
   public VirtualFile getVirtualFile(DataContext dataContext) {
     return  DataKeys.VIRTUAL_FILE.getData(dataContext);

@@ -1,6 +1,7 @@
 package org.google.code.cafebabe;
 
 import com.intellij.openapi.project.Project;
+import com.intellij.ui.components.JBScrollPane;
 import org.sf.cafebabe.gadget.classtree.PlainClassTree;
 import org.sf.cafebabe.task.classfile.ClassTreeActions;
 import org.sf.cafebabe.util.IconProducer;
@@ -102,8 +103,8 @@ public class IdeaClassTree extends PlainClassTree {
       topPanel.add(actions.getToolBar(), BorderLayout.NORTH);
 
       // Create a new class tree
-      JScrollPane scrollPane = new JScrollPane(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
-          JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+      JScrollPane scrollPane = new JBScrollPane(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
+              JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
       topPanel.add(scrollPane, BorderLayout.CENTER);
 
       scrollPane.getViewport().add(this);

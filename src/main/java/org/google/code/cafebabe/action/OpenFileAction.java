@@ -64,7 +64,7 @@ public class OpenFileAction extends IdeaAction {
             lastSelectedVirtualFile = localFileSystem.findFileByPath(lastSelectedFile);
           }
 
-          VirtualFile[] chooseFiles = FileChooser.chooseFiles(project, descriptor, lastSelectedVirtualFile);
+          VirtualFile[] chooseFiles = FileChooser.chooseFiles(descriptor, project, lastSelectedVirtualFile);
 
           if (chooseFiles.length > 0) {
             VirtualFile virtualFile = chooseFiles[0];

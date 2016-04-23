@@ -41,7 +41,7 @@ public class OpenFileInCafeBabeAction extends IdeaAction {
           VirtualFile virtualFile = helper.getVirtualFile(event.getDataContext());
 
           if (virtualFile != null) {
-            if ("class".equals(FileUtil.getExtension(virtualFile.getPresentableUrl()))) {
+            if ("class".equals(FileUtil.getExtension(new File(virtualFile.getPresentableUrl())))) {
               Window window = WindowManager.getInstance().suggestParentWindow(project);
 
               Cursor cursor = window.getCursor();
