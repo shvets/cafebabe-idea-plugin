@@ -1,6 +1,6 @@
 <!DOCTYPE idea-plugin PUBLIC "Plugin/DTD" "http://plugins.intellij.net/plugin.dtd">
 
-<idea-plugin version="2" url="http://code.google.com/p/cafebabe-idea-plugin">
+<idea-plugin version="2" url="https://github.com/shvets/cafebabe-idea-plugin">
   <id>com.github.shvets.plugin.cafebabe</id>
   <name>CafeBabe</name>
   <version>1.0.0</version>

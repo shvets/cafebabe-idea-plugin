@@ -3,7 +3,7 @@
 <project>
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.google.code</groupId>
+  <groupId>org.github.cafebabe</groupId>
   <artifactId>cafebabe-idea-plugin</artifactId>
   <version>1.0.0</version>
   <packaging>jar</packaging>
@@ -11,37 +11,35 @@
   <name>cafebabe-idea-plugin</name>
   <description>Intellij IDEA plugin for CafeBabe Bytecode Editor.</description>
 
-  <url>http://code.google.com/p/cafebabe-idea-plugin</url>
+  <url>https://github.com/shvets/cafebabe-idea-plugin</url>
   <inceptionYear>2007</inceptionYear>
 
   <issueManagement>
-    <system>Google Code bugtracker</system>
-    <url>http://code.google.com/p/-idea-plugin/issues/list</url>
+    <system>Github bugtracker</system>
+    <url>https://github.com/shvets/cafebabe-idea-plugin/issues</url>
   </issueManagement>
 
   <licenses>
     <license>
-      <name>Apache License 2.0</name>
-      <url>http://www.apache.org/licenses</url>
+      <name>MIT</name>
     </license>
   </licenses>
 
   <scm>
-    <connection>scm:svn:https://cafebabe-idea-plugin.googlecode.com/svn/trunk</connection>
-    <url>http://cafebabe-idea-plugin.googlecode.com/svn</url>
+    <connection>scm:git:https://github.com/shvets/cafebabe-idea-plugin</connection>
+    <url>https://github.com/shvets/cafebabe-idea-plugin</url>
   </scm>
 
   <organization>
-    <name>Dream Programs Inc.</name>
-    <url>http://scriptlandia.blogspot.com</url>
+    <name>Alexander Shvets</name>
+    <url>https://shvuesr.github.com</url>
   </organization>
 
   <developers>
     <developer>
       <id>shvets</id>
       <name>Alexander Shvets</name>
-      <email>shvets_alexander@yahoo.com</email>
-      <organization>Dream Programs</organization>
+      <email>alexander.shvets@gmail.com</email>
       <roles>
         <role>Founder</role>
       </roles>
@@ -188,7 +186,7 @@
   <distributionManagement>
     <site>
       <id>Web site</id>
-      <url>http://code.google.com/p/cafebabe-idea-plugin</url>
+      <url>https://github.com/shvets/cafebabe-idea-plugin</url>
     </site>
   </distributionManagement>
 
