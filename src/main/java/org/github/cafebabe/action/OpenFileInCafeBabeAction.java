@@ -1,12 +1,12 @@
-package org.google.code.cafebabe.action;
+package org.github.cafebabe.action;
 
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.openapi.wm.WindowManager;
-import org.google.code.cafebabe.ClassFileViewerToolWindow;
-import org.google.code.idea.common.IdeaAction;
-import org.google.code.idea.common.IdeaHelper;
+import org.github.cafebabe.ClassFileViewerToolWindow;
+import org.github.idea.common.IdeaAction;
+import org.github.idea.common.IdeaHelper;
 import org.sf.jlaunchpad.util.FileUtil;
 
 import java.awt.*;

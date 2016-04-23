@@ -1,4 +1,4 @@
-package org.google.code.cafebabe;
+package org.github.cafebabe;
 
 import com.intellij.openapi.help.HelpManager;
 import com.intellij.openapi.project.Project;
@@ -6,7 +6,7 @@ import com.intellij.openapi.util.IconLoader;
 import com.intellij.openapi.wm.ToolWindow;
 import com.intellij.openapi.wm.ToolWindowAnchor;
 import com.intellij.openapi.wm.ToolWindowType;
-import org.google.code.idea.common.ToolWindowComponent;
+import org.github.idea.common.ToolWindowComponent;
 import org.sf.cafebabe.Constants;
 import org.sf.cafebabe.gadget.bodyeditor.BodyEditorActions;
 import org.sf.cafebabe.gadget.bodyeditor.BodyEditorAware;

@@ -1,4 +1,4 @@
-package org.google.code.cafebabe.action;
+package org.github.cafebabe.action;
 
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.fileChooser.FileChooser;
@@ -9,9 +9,9 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.LocalFileSystem;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.openapi.wm.WindowManager;
-import org.google.code.cafebabe.CafeBabeConfiguration;
-import org.google.code.cafebabe.ClassFileViewerToolWindow;
-import org.google.code.idea.common.IdeaAction;
+import org.github.cafebabe.CafeBabeConfiguration;
+import org.github.cafebabe.ClassFileViewerToolWindow;
+import org.github.idea.common.IdeaAction;
 import org.sf.cafebabe.util.FileUtil;
 
 import java.awt.*;

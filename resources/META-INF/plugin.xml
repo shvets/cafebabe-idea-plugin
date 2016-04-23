@@ -85,59 +85,59 @@
 
   <project-components>
     <component>
-      <implementation-class>org.google.code.cafebabe.CafeBabeConfiguration</implementation-class>
+      <implementation-class>org.github.cafebabe.CafeBabeConfiguration</implementation-class>
       <option name="workspace" value="true"/>
     </component>
 
     <component>
-      <implementation-class>org.google.code.cafebabe.ClassFileViewerToolWindow</implementation-class>
-      <interface-class>org.google.code.cafebabe.ClassFileViewerToolWindow</interface-class>
+      <implementation-class>org.github.cafebabe.ClassFileViewerToolWindow</implementation-class>
+      <interface-class>org.github.cafebabe.ClassFileViewerToolWindow</interface-class>
     </component>
 
     <component>
-      <implementation-class>org.google.code.cafebabe.ClassHoundToolWindow</implementation-class>
-      <interface-class>org.google.code.cafebabe.ClassHoundToolWindow</interface-class>
+      <implementation-class>org.github.cafebabe.ClassHoundToolWindow</implementation-class>
+      <interface-class>org.github.cafebabe.ClassHoundToolWindow</interface-class>
     </component>
   </project-components>
 
   <actions>
     <group id="cafebabe.ClassFileViewerToolWindow" text="CafeBabe" popup="true">
       <action id="cafebabe.HideCafeBabeAction"
-              class="org.google.code.cafebabe.action.HideClassFileViewerAction"
+              class="org.github.cafebabe.action.HideClassFileViewerAction"
               text="Hide CafeBabe"
               description="Hide CafeBabe"
               icon="/actions/cancel.png">
       </action>
 
       <action id="cafebabe.OpenFileAction"
-              class="org.google.code.cafebabe.action.OpenFileAction"
+              class="org.github.cafebabe.action.OpenFileAction"
               text="Open File"
               description="Open File in CafeBabe Bytecode Editor"
               icon="/actions/menu-open.png">
       </action>
 
       <action id="cafebabe.CloseFileAction"
-              class="org.google.code.cafebabe.action.CloseClassFileAction"
+              class="org.github.cafebabe.action.CloseClassFileAction"
               text="Close File"
               description="Close File  in CafeBabe Bytecode Editor"
               icon="/actions/breakpoint.png">
       </action>
 
       <action id="cafebabe.SaveFileAction"
-              class="org.google.code.cafebabe.action.SaveFileAction"
+              class="org.github.cafebabe.action.SaveFileAction"
               text="Save File"
               description="Save File in CafeBabe Bytecode Editor"
               icon="/actions/menu-saveall.png">
       </action>
       <action id="cafebabe.OpenClassHoundAction"
-              class="org.google.code.cafebabe.action.OpenClassHoundAction"
+              class="org.github.cafebabe.action.OpenClassHoundAction"
               text="Display ClassHound"
               description="Display ClassHound"
               icon="/Icons/hound-16.png">
       </action>
 
       <action id="cafebabe.AboutAction"
-              class="org.google.code.cafebabe.action.AboutAction"
+              class="org.github.cafebabe.action.AboutAction"
               text="About CafeBabe Plugin"
               description="About CafeBabe Plugin"
               icon="/Icons/cafebabe-16.png">
@@ -146,7 +146,7 @@
 
     <group id="cafebabe.ClassHoundToolWindow" text="ClassHound" popup="true">
       <action id="cafebabe.CloseClassHoundAction"
-              class="org.google.code.cafebabe.action.CloseClassHoundAction"
+              class="org.github.cafebabe.action.CloseClassHoundAction"
               text="Close ClassHound"
               description="Close ClassHound"
               icon="/actions/cancel.png">
@@ -154,7 +154,7 @@
     </group>
 
     <action id="cafebabe.ViewInCafeBabe"
-            class="org.google.code.cafebabe.action.OpenFileInCafeBabeAction"
+            class="org.github.cafebabe.action.OpenFileInCafeBabeAction"
             text="Open in CafeBabe"
             description="Open file in CafeBabe Bytecode Editor">
       <add-to-group group-id="EditorPopupMenu" anchor="after" relative-to-action="Compile"/>
@@ -166,7 +166,7 @@
            popup="true">
       <add-to-group group-id="ToolsMenu" anchor="before" relative-to-action="ExternalToolsGroup"/>
       <action id="cafebabe.DisplayCafeBabe"
-              class="org.google.code.cafebabe.action.DisplayCafeBabeAction"
+              class="org.github.cafebabe.action.DisplayCafeBabeAction"
               text="Displays CafeBabe Bytecode Editor"
               description="Displays CafeBabe Bytecode Editor"/>
     </group>
